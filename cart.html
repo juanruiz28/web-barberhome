@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>BARBER HOME</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="img/favicon.ico" rel="icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="css/style.min.css" rel="stylesheet">
+    <!-- Estilos para el toast -->
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js@1.7.0/src/toastify.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0 nav-bar">
+        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+            <a href="index.html" class="navbar-brand px-lg-4 m-0">
+                <h1 class="m-0 display-4 text-uppercase text-white">BARBER HOME</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto p-4">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">Acerca</a>
+                    <a href="service.html" class="nav-item nav-link">Productos</a>
+                    <a href="cart.html" class="nav-item nav-link position-relative active">
+                        <i class="fas fa-shopping-cart fa-lg"></i>
+                        <span id="cart-count" class="badge badge-danger position-absolute"
+                            style="top: 0px; right: 0px; font-size: 0.6rem;">0</span>
+                    </a>
+                    <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5"
+            style="min-height: 400px">
+            <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Carrito</h1>
+            <div class="d-inline-flex mb-lg-5">
+                <p class="m-0 text-white"><a class="text-white" href="index.html">Home</a></p>
+                <p class="m-0 text-white px-2">/</p>
+                <p class="m-0 text-white">Carrito</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Cart Content Start -->
+    <div class="container my-5">
+        <h2 class="mb-4">Productos en tu carrito</h2>
+        <div id="cart-items" class="row"></div>
+
+        <div class="mt-4">
+            <h4>Total: S/. <span id="total-price">0</span></h4>
+            <button id="checkout-btn" class="btn btn-success mt-3" disabled>Proceder al Checkout</button>
+            <button id="clear-cart-btn" class="btn btn-danger mt-3 ml-2">Vaciar Carrito</button>
+        </div>
+    </div>
+    <!-- Cart Content End -->
+
+
+
+    <!-- Toast Notifications -->
+    <div id="toast-container"></div>
+
+    <div id="productos-api" class="d-flex flex-wrap"></div>
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
+        <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
+            <!-- Footer content igual que en tu plantilla -->
+            <!-- Puedes copiar tu footer aquí -->
+        </div>
+        <div class="container-fluid text-center text-white border-top mt-4 py-4 px-sm-3 px-md-5"
+            style="border-color: rgba(256, 256, 256, .1) !important;">
+            <p class="mb-2 text-white">Copyright © <a class="font-weight-bold" href="#">BarberHome</a>. Todos los
+                derechos reservados.</p>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <!-- Script para los Toasts -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js@1.7.0/src/toastify.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            function actualizarCartCount() {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                $('#cart-count').text(cart.length);
+            }
+
+            function renderCart() {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const cartItems = $('#cart-items');
+                cartItems.empty();
+
+                let total = 0;
+
+                if (cart.length === 0) {
+                    cartItems.append('<div class="col-12"><p>Tu carrito está vacío.</p></div>');
+                    $('#total-price').text('0');
+                    $('#checkout-btn').prop('disabled', true); // Desactiva el botón de checkout
+                    return;
+                }
+
+                cart.forEach((product, index) => {
+                    const productCard = `
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <img class="card-img-top" src="${product.image}" alt="${product.name}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${product.name}</h5>
+                                    <p class="card-text">S/.${product.price}</p>
+                                    <button class="btn btn-danger btn-sm remove-from-cart" data-index="${index}">Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    cartItems.append(productCard);
+                    total += product.price * (product.quantity || 1);
+
+                });
+
+                $('#total-price').text(total.toFixed(2));
+                $('#checkout-btn').prop('disabled', false); // Activa el botón de checkout
+            }
+
+            // Mostrar el toast
+            function showToast(message) {
+                Toastify({
+                    text: message,
+                    duration: 3000,
+                    close: true,
+                    gravity: "top", // Puede ser "top" o "bottom"
+                    position: "right", // Puede ser "left", "center" o "right"
+                    backgroundColor: "#28a745", // Color de fondo (verde)
+                }).showToast();
+            }
+
+            // Eliminar un solo producto
+            $(document).on('click', '.remove-from-cart', function () {
+                const index = $(this).data('index');
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+                actualizarCartCount();
+            });
+
+            // Vaciar todo el carrito
+            $('#clear-cart-btn').on('click', function () {
+                if (confirm('¿Seguro que quieres vaciar el carrito?')) {
+                    localStorage.removeItem('cart');
+                    renderCart();
+                    actualizarCartCount();
+                }
+            });
+
+            // Botón de checkout
+            // Botón de checkout
+            $('#checkout-btn').on('click', function () {
+                showToast('¡Gracias por tu compra!');
+                localStorage.removeItem('cart');
+                window.location.href = 'pago.html'; // Redirige correctamente
+            });
+
+
+            // Inicializar
+            renderCart();
+            actualizarCartCount();
+        });
+    </script>
+
+</body>
+
+</html>

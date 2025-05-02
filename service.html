@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>BARBER HOME</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
+    <link href="img/favicon.ico" rel="icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0 nav-bar">
+        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+            <a href="index.html" class="navbar-brand px-lg-4 m-0">
+                <h1 class="m-0 display-4 text-uppercase text-white">BARBER HOME</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto p-4">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">Acerca</a>
+                    <a href="service.html" class="nav-item nav-link active">Productos</a>
+                    <!--<a href="cart.html" class="nav-item nav-link position-relative">
+                        <i class="fas fa-shopping-cart fa-lg"></i>
+                        <span id="cart-count" class="badge badge-danger position-absolute"
+                            style="top: 0px; right: 0px; font-size: 0.6rem;">0</span>
+                    </a>-->
+                    <a href="cart.html" id="cart-toggle" class="nav-item nav-link position-relative dropdown-toggle"
+                        data-toggle="dropdown">
+                        <i class="fas fa-shopping-cart fa-lg"></i>
+                        <span id="cart-count" class="badge badge-danger position-absolute"
+                            style="top: 0px; right: 0px; font-size: 0.6rem;">0</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right p-3" style="min-width: 300px;" id="cart-dropdown">
+                        <div id="cart-items" class="mb-2">Tu carrito está vacío.</div>
+                        <a href="cart.html" class="btn btn-primary btn-block">Ir al Checkout</a>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cuenta</a>
+                        <div class="dropdown-menu text-capitalize">
+                            <a href="reservation.html" class="dropdown-item">Iniciar Sesión</a>
+                            <a href="#" id="logout-link" class="dropdown-item">Cerrar Sesión</a>
+                        </div>
+                    </div>
+
+                    <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5"
+            style="min-height: 400px">
+            <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Productos</h1>
+            <div class="d-inline-flex mb-lg-5">
+                <p class="m-0 text-white"><a class="text-white" href="">Home</a></p>
+                <p class="m-0 text-white px-2">/</p>
+                <p class="m-0 text-white">Productos</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Service Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="section-title">
+                <h1 class="display-4">Nuestros Productos</h1>
+            </div>
+            <div class="row" id="product-list"></div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
+        <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Ponte en contacto</h4>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Av. Industrial N° 3733 - Independencia</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>(01) 20 20 900</p>
+                <p class="m-0"><i class="fa fa-envelope mr-2"></i><a href="/cdn-cgi/l/email-protection"
+                        class="__cf_email__" data-cfemail="7f1d1e0d1d1a0d17101a123f1c1a0d0b0a0c511a1b0a510e1b">[email
+                        protected]</a></p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Síguenos</h4>
+                <div class="d-flex justify-content-start">
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Horario de atención</h4>
+                <div>
+                    <h6 class="text-white text-uppercase">Monday - Friday</h6>
+                    <p>8.00 AM - 8.00 PM</p>
+                    <h6 class="text-white text-uppercase">Saturday - Sunday</h6>
+                    <p>2.00 PM - 8.00 PM</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Hoja informativa</h4>
+                <p>Descubre toda nuestra carta informativa para futuras sorpresas</p>
+                <div class="w-100">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-light" style="padding: 25px;"
+                            placeholder="Tu correo">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary font-weight-bold px-3">Inscribirse</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid text-center text-white border-top mt-4 py-4 px-sm-3 px-md-5"
+            style="border-color: rgba(256, 256, 256, .1) !important;">
+            <p class="mb-2 text-white">Copyright © <a class="font-weight-bold" href="#">BarberHome</a>. Todos los
+                derechos Reservados.</p>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Renderiza el contenido del carrito en el dropdown
+            function renderizarCarritoDropdown() {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const cartItemsContainer = $('#cart-items');
+
+                if (cart.length === 0) {
+                    cartItemsContainer.html('<p class="text-muted m-0">Tu carrito está vacío.</p>');
+                    return;
+                }
+
+                let html = '<ul class="list-unstyled mb-2">';
+                cart.forEach((item, index) => {
+                    html += `
+            <li class="d-flex justify-content-between align-items-center mb-2">
+                <span>${item.name}</span>
+                <span class="text-primary">S/.${item.price}</span>
+            </li>
+        `;
+                });
+                html += '</ul>';
+                cartItemsContainer.html(html);
+            }
+
+            // Mostrar dropdown del carrito al hacer clic
+            $('#cart-toggle').on('click', function () {
+                renderizarCarritoDropdown();
+            });
+
+            // Logout
+            $('#logout-link').on('click', function (e) {
+                e.preventDefault();
+                localStorage.removeItem('currentUser');
+                window.location.href = 'reservation.html';
+            });
+
+            // Product list
+            const products = [
+                {
+                    id: 1,
+                    name: 'MAQUINA DE CORTAR',
+                    description: 'Esta maquina de cortar es una herramienta imprescindible para barberos y estilistas que buscan potencia, precisión y un diseño sofisticado. Como parte de la prestigiosa línea 5 Star Series de Wahl, esta máquina de corte combina tecnología de vanguardia con la comodidad de un diseño ergonómico y ligero.',
+                    price: 600,
+                    image: 'img/producto1.WEBP'
+                },
+                {
+                    id: 2,
+                    name: 'CREMA DEFINIDORA',
+                    description: 'Esta crema definidora es la elección ideal para quienes buscan un peinado definido, con volumen y sin brillo excesivo. Su fórmula enriquecida con queratina fortalece el cabello mientras proporciona una fijación duradera sin dejar residuos pegajosos.',
+                    price: 25,
+                    image: 'img/producto2.WEBP'
+                },
+                {
+                    id: 3,
+                    name: 'CONJUNTO DE NAVAJAS',
+                    description: '. La maquinilla de afeitar está expuesta un 30% más que los porta navajas normales, deslice el soporte de la maquinilla de afeitar o navajera, tornillo de tensión para ajustar el movimiento del mango, y Acero inoxidable.',
+                    price: 18,
+                    image: 'img/producto3.WEBP'
+                },
+                {
+                    id: 4,
+                    name: 'SET DE ESCOBILLAS',
+                    description: ' eliminar el exceso de vello alrededor del cuello, las orejas y la cara después del corte de pelo . Además, evita que el vello residual se quede en el cuerpo y te cause molestias. Las cerdas suaves eliminan fácilmente el vello o el polvo de la máquina.',
+                    price: 22,
+                    image: 'img/pexels-escobillin.jpg'
+                },
+                {
+                    id: 5,
+                    name: 'MAQUINA DEPILADORA',
+                    description: 'Está diseñada para proporcionar cortes precisos y uniformes con sus diferentes peines y cuchilla de acero inoxidable, puedes lograr acabados pulidos y definidos en cualquier textura.',
+                    price: 18,
+                    image: 'img/pexels-maquinita.jpg'
+                },
+                {
+                    id: 6,
+                    name: 'NAVAJA WODEN',
+                    description: 'Nuestro Portacuchillas Profesional Clásico: Lo antiguo es oro. Tiene un diseño cómodo, ergonómico y profesional para colocar y afeitar la navaja.',
+                    price: 14,
+                    image: 'img/pexels-navaja.jpg'
+                },
+                {
+                    id: 7,
+                    name: 'SPRAY',
+                    description: 'Spray profesional con un mejor diseño. El nuevo cuidado hidratante 24h anti-edad mejorado con ácido hialurónico. Tiene una textura no grasa y es de fácil absorción.',
+                    price: 13,
+                    image: 'img/pexels-spray.jpg'
+                },
+                {
+                    id: 8,
+                    name: 'POLVO TEXTURIZADOR',
+                    description: 'El Polvo Texturizador DORSH 20g es la solución perfecta para quienes buscan un acabado profesional en sus peinados. Este innovador producto proporciona volumen, fijación y textura sin apelmazar el cabello, permitiendo una apariencia natural y estilizada.',
+                    price: 22,
+                    image: 'img/producto8.WEBP'
+                },
+                {
+                    id: 9,
+                    name: 'TIJERA',
+                    description: 'Esta tijera de corte de cabello tiene un tornillo de tensión y ajuste plateado para apretar y aflojar fácilmente las tijeras, libremente para elegir la tensión que mejor se adapte a ti, muy cómodo de usar.',
+                    price: 21,
+                    image: 'img/producto9.WEBP'
+                }
+            ];
+
+            // Product list
+            /* products = [
+                {
+                    id: 1,
+                    name: 'Máquina para cabello',
+                    description: 'Esta herramienta está diseñada para proporcionar cortes precisos y uniformes con sus diferentes peines y cuchilla de acero inoxidable, puedes lograr acabados pulidos y definidos en cualquier textura de cabello.',
+                    price: 27,
+                    image: 'img/maquina1.jpg'
+                },
+                {
+                    id: 2,
+                    name: 'Crema definidora',
+                    description: 'Descubre nuestra 1ª Crema Definidora para Barba y Cabello Barber Club de L\'Oréal Men Expert, enriquecida con Aceite esencial de Madera de Cedro, para una barba controlada y un peinado más definido durante más tiempo.',
+                    price: 23,
+                    image: 'img/pom.jpg'
+                },
+                {
+                    id: 3,
+                    name: 'Conjunto navaja y escobilla',
+                    description: 'Es una herramienta de limpieza para barbería, suave, para el cuello, cabello roto para barrer, contiene 2 piezas.',
+                    price: 12,
+                    image: 'img/pexels-1.jpg'
+                },
+                {
+                    id: 4,
+                    name: 'Set de escobillas premium',
+                    description: 'Es una herramienta de limpieza para barbería, suave, para el cuello, cabello roto para barrer, contiene 2 piezas.',
+                    price: 22,
+                    image: 'img/pexels-escobillin.jpg'
+                },
+                {
+                    id: 5,
+                    name: 'Máquina depiladora',
+                    description: 'Está diseñada para proporcionar cortes precisos y uniformes con sus diferentes peines y cuchilla de acero inoxidable, puedes lograr acabados pulidos y definidos en cualquier textura.',
+                    price: 18,
+                    image: 'img/pexels-maquinita.jpg'
+                },
+                {
+                    id: 6,
+                    name: 'Navaja wooden',
+                    description: 'Nuestro Portacuchillas Profesional Clásico: Lo antiguo es oro. Tiene un diseño cómodo, ergonómico y profesional para colocar y afeitar la navaja.',
+                    price: 14,
+                    image: 'img/pexels-navaja.jpg'
+                },
+                {
+                    id: 7,
+                    name: 'Spray Cyzone',
+                    description: 'Spray profesional con un mejor diseño. El nuevo cuidado hidratante 24h anti-edad mejorado con ácido hialurónico. Tiene una textura no grasa y es de fácil absorción.',
+                    price: 13,
+                    image: 'img/pexels-spray.jpg'
+                },
+                {
+                    id: 8,
+                    name: 'Set de tijeras',
+                    description: 'Este juego de tijeras de corte de pelo tiene un tornillo de tensión y ajuste plateado para apretar y aflojar fácilmente las tijeras, libremente para elegir la tensión que mejor se adapte a ti, muy cómodo de usar.',
+                    price: 22,
+                    image: 'img/pexels-tijera.jpg'
+                },
+                {
+                    id: 9,
+                    name: 'Set de tijeras2.0',
+                    description: 'Este juego de tijeras de corte de pelo tiene un tornillo de tensión y ajuste plateado para apretar y aflojar fácilmente las tijeras, libremente para elegir la tensión que mejor se adapte a ti, muy cómodo de usar.',
+                    price: 21,
+                    image: 'img/pexels-tijera.jpg'
+                }
+            ];*/
+
+            // Render products
+            const productList = $('#product-list');
+            products.forEach(product => {
+                const productCard = `
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="${product.image}" alt="${product.name}">
+                            <div class="card-body">
+                                <h4 class="card-title"><i class="fa fa-award text-primary mr-2"></i>${product.name}</h4>
+                                <p class="card-text">${product.description}</p>
+                                <h5>S/.${product.price}</h5>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary btn-block add-to-cart" data-id="${product.id}">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productList.append(productCard);
+            });
+
+            // Add to cart
+            /*$('.add-to-cart').on('click', function () {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                const productId = $(this).data('id');
+                const product = products.find(p => p.id === productId);
+
+                if (!currentUser) {
+                    window.location.href = 'reservation.html?redirect=cart';
+                    return;
+                }
+
+                // Initialize cart in localStorage if not exists
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                // Add product to cart
+                cart.push(product);
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+                alert(`${product.name} ha sido añadido al carrito.`);
+            });*/
+
+            // Actualizar el contador del carrito
+            function actualizarCartCount() {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                $('#cart-count').text(cart.length);
+            }
+
+            // Cada vez que agregues un producto:
+            $('.add-to-cart').on('click', function () {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                const productId = $(this).data('id');
+                const product = products.find(p => p.id === productId);
+
+                if (!currentUser) {
+                    window.location.href = 'reservation.html?redirect=cart';
+                    return;
+                }
+
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.push(product);
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+                // SweetAlert en lugar de alert
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Producto añadido!',
+                    text: `${product.name} ha sido añadido al carrito.`,
+                    showConfirmButton: false,
+                    timer: 1500,
+                    toast: true,
+                    position: 'top-end'
+                });
+
+                actualizarCartCount(); // <--- Actualizar contador después de agregar
+            });
+
+            // Al cargar la página, actualizar el contador
+            actualizarCartCount();
+
+
+
+
+        });
+    </script>
+</body>
+
+</html>

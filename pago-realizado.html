@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Pago Realizado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="img/favicon.ico" rel="icon">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .success-box {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .success-box .icon {
+      font-size: 4rem;
+      color: #28a745;
+      animation: bounce 1s ease;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="success-box">
+    <div class="icon mb-3">
+      <i class="fas fa-check-circle"></i>
+    </div>
+    <h1 class="text-success mb-3">¡Pago realizado con éxito!</h1>
+    <p class="lead mb-4">Gracias por confiar en <strong>Barber Home</strong>. Tu pedido ha sido procesado.</p>
+    <a href="index.html" class="btn btn-primary">Volver al inicio</a>
+  </div>
+</body>
+
+</html>
