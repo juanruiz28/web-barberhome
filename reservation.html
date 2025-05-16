@@ -100,7 +100,7 @@
                     <div class="text-center p-5" style="background: rgba(80, 58, 58, 0.7);">
                         <h1 class="text-white mb-4">Iniciar Sesión</h1>
                         <div id="login-error" class="text-danger mb-3" style="display: none;"></div>
-                        <form id="login-form">
+                        <form id="login-form" action="http://localhost:8000/login" method="POST">
                             <div class="form-group">
                                 <input type="email" class="form-control bg-transparent border-primary p-4"
                                     id="login-email" placeholder="Correo" required />
@@ -109,6 +109,8 @@
                                 <input type="password" class="form-control bg-transparent border-primary p-4"
                                     id="login-password" placeholder="Contraseña" required />
                             </div>
+                            <div class="g-recaptcha" data-sitekey="6LeFwzcrAAAAAH5KPb_pnZb85bLzPTV_jCHSWFeV"></div>
+
                             <div>
                                 <button class="btn btn-primary btn-block font-weight-bold py-3" type="submit">Iniciar
                                     Sesión</button>
@@ -294,6 +296,9 @@
             }
         });
     </script>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </body>
 
 </html>
